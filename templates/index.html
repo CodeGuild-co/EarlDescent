@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title> Earl Descent </title>
-	 <link rel="stylesheet" type="text/css" href="index.css">
+	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
 
@@ -47,20 +47,16 @@
 	<span id='letter7' onclick="remove('7')" >⠀</span>
 	<span id='letter8' onclick="remove('8')" >⠀</span>
 </p>
- <p class="MainWord">
-	<span id='aletter0'>⠀</span>
-	<span id='aletter1'>⠀</span>
-	<span id='aletter2'>⠀</span>
-	<span id='aletter3'>⠀</span>
-	<span id='aletter4'>⠀</span>
-	<span id='aletter5'>⠀</span>
-	<span id='aletter6'>⠀</span>
-	<span id='aletter7'>⠀</span>
-	<span id='aletter8'>⠀</span>
-</p>
+{% for word in words %}
+    <p class="MainWord">
+        {% for letter in word %}
+            <span>{{ letter }}</span>
+        {% endfor %}
+    </p>
+{% endfor %}
 </div>
 <br>
-		<form>
+		<form method="GET">
 			<div class="TextEntry">
 			<input maxlength="9" type='text' id='textInp' name='inputText' onkeyup="letter()">
 			</div>

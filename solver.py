@@ -9,17 +9,16 @@ def each(_list):
     return range(len(_list))
 
 # Grabbing dictionary from text file and getting letters from user
-file = open('dictionary.txt','r')
-dictionary = file.readlines()
-file.close()
+with open('dictionary.txt','r') as file:
+    dictionary = file.readlines()
 
 searching_dict = [sort(list(dictionary[i])[:-1]) for i in each(dictionary)]
-letters = sort(list(input('What letters would you like? ').lower()))
 
 #### Program functions ####
-def minimise_dictionary():
+def minimise_dictionary(letters):
     '''Removing words that cannot be made'''
     # words aren't removed instanty as that changes size of list
+    minimised_dictionary = dictionary[:]
     to_pop = []
     
     for i in each(searching_dict):
@@ -35,17 +34,16 @@ def minimise_dictionary():
     # removing in reverse order so indexes don't change
     to_pop.reverse()
     for i in to_pop:
-        dictionary.pop(i)
-        searching_dict.pop(i)
+        minimised_dictionary.pop(i)
 
     # removing the \n from reading the text file
-    for i in each(dictionary):
-        dictionary[i] = dictionary[i][:-1]
+    for i in each(minimised_dictionary):
+        minimised_dictionary[i] = minimised_dictionary[i][:-1]
 
-    return dictionary
+    return minimised_dictionary
 
 
-def get_best_words():
+def get_best_words(dictionary):
     '''Picking the best 5 words from the new narrowed down dictionary'''
     length = [0,0,0,0,0]
     index = []
@@ -80,9 +78,10 @@ def get_best_words():
 
 ##    return definition
     
-
-minimise_dictionary()
-words = get_best_words()
-for i in words:
-    print(i)
-print(words[0].title() + ' - ' + get_definition(words[0]))
+if __name__ == "__main__":
+    letters = sort(list(input('What letters would you like? ').lower()))
+    d = minimise_dictionary(letters)
+    words = get_best_words(d)
+    for i in words:
+        print(i)
+    #print(words[0].title() + ' - ' + get_definition(words[0]))
