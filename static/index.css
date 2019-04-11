@@ -1,0 +1,210 @@
+.header {
+	margin-left: 50px;
+	font-family: Fantasy;
+}
+
+.headercaption {
+	margin-left: 50px;
+	font-family: Fantasy;
+}
+
+.entry {
+	margin-top: 60px;
+	margin-left: 50px;
+	letter-spacing: 4px;
+}
+
+.SubmitButtons{
+	margin-left: 300px;
+	margin-top: -25px;
+}
+.EnteredText{
+	margin-left: 50px;
+}
+
+.TextEntry{
+	margin-top: 80px;
+	margin-left: 50px;
+}
+
+.MainWord {
+	margin-top: 20px;
+	margin-left: 50px;
+
+}
+
+.Blanket{
+	display: inline;
+}
+
+#letter0:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter1:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter2:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter3:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter4:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter5:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter6:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter7:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter8:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter0{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter1{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter2{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter3{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter4{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter5{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter6{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter7{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter8{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+
+#aletter0{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter1{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter2{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter3{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter4{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter5{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter6{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter7{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter8{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
