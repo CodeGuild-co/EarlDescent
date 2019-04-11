@@ -15,15 +15,53 @@
 		<p> A website that helps you get the most points in Countdown. </p>
 	</div>
 
-	</p>
-	</div>
-
 <!-- Entry Form -->
-	<div class="entry">
-		<p id='letters'>placehold</p>
+	<script>
+		function letter(){
+		for (var i=0;i<=8;i++){
+
+		document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
+		var x=document.getElementById("textInp").value;
+		document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
+				document.getElementById("letter"+i.toString()).innerHTML=x.substring(i,i+1);
+		if (document.getElementById("letter"+i.toString()).innerHTML == "")  {
+			document.getElementById("letter"+i.toString()).innerHTML = "⠀";
+		}
+		}
+		}
+		function remove(x){
+		var y=document.getElementById("textInp").value;
+		document.getElementById("textInp").value=y.substring(0,x)+y.substring(Number(x)+1);
+		letter();
+		}
+	</script>
+
+ <div class="EnteredText">
+	<p id='letters'></p>
+	<p id='letter0' onclick="remove('0')" style='float: left'>⠀</p>
+	<p id='letter1' onclick="remove('1')" style='float: left'>⠀</p>
+	<p id='letter2' onclick="remove('2')" style='float: left'>⠀</p>
+	<p id='letter3' onclick="remove('3')" style='float: left'>⠀</p>
+	<p id='letter4' onclick="remove('4')" style='float: left'>⠀</p>
+	<p id='letter5' onclick="remove('5')" style='float: left'>⠀</p>
+	<p id='letter6' onclick="remove('6')" style='float: left'>⠀</p>
+	<p id='letter7' onclick="remove('7')" style='float: left'>⠀</p>
+	<p id='letter8' onclick="remove('8')" style='float: left'>⠀</p>
+</div>
+
+	<br>
+
+	<div class="TextEntry">
 		<form>
-		<input type='text' id='textInp' name='inputText' onkeyup='document.getElementById("letters").innerHTML=document.getElementById("textInp").value;'>
+			<input maxlength="9" type='text' id='textInp' name='inputText' onkeyup="letter()">
+			</div>
+			<div class="SubmitButtons">
+			<input type="submit" value="Normal Countdown Solver">
+			<input type="submit" value="Joke Countdown Solver">
+			</div>
 		</form>
 	</div>
+
+
 </body>
 </html>

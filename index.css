@@ -11,5 +11,126 @@
 .entry {
 	margin-top: 60px;
 	margin-left: 50px;
+	letter-spacing: 4px;
+}
 
+.EnteredText{
+	margin-left: 50px;
+}
+
+#letter0:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter1:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter2:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter3:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter4:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter5:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter6:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter7:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+#letter8:hover{
+	color: red;
+	border: 3px solid red;
+}
+
+.TextEntry {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.SubmitButtons{
+	margin-left: 300px;
+}
+
+#letter0{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter1{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter2{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter3{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter4{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter5{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter6{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter7{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#letter8{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
 }
