@@ -43,7 +43,8 @@
 			<input type="submit" onclick value="Countdown Solver">			
 			</div>
 		</form>
-
+<div class="OtherWords">
+<p> These are other possible words: </p>
 {% for word in words[1:] %}
     <p>
         {% for letter in word %}
@@ -51,7 +52,7 @@
         {% endfor %}
     </p>
 {% endfor %}
-
+</div>
 	<script>
 		function letter(){
 			for (var i=0;i<=8;i++){
@@ -71,5 +72,6 @@
 		}
 		letter();
 	</script>
+</div>
 </body>
 </html>
