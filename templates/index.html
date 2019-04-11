@@ -43,15 +43,16 @@
  
 </div>
 <br>
-        <form method="GET">
-            <div class="TextEntry">
-            <input maxlength="9" type='text' id='textInp' name='inputText' onkeyup="letter()" value="{{ inputText }}">
-            </div>
-            <div class="SubmitButtons">
-            <input type="submit" onclick value="Countdown Solver">         
-            </div>
-        </form>
- 
+		<form method="GET">
+			<div class="TextEntry">
+			<input maxlength="9" type='text' id='textInp' name='inputText' onkeyup="letter()" value="{{ inputText }}">
+			</div>
+			<div class="SubmitButtons">
+			<input type="submit" onclick value="Countdown Solver">			
+			</div>
+		</form>
+<div class="OtherWords">
+<p> These are other possible words: </p>
 {% for word in words[1:] %}
     <p>
         {% for letter in word %}
@@ -59,25 +60,26 @@
         {% endfor %}
     </p>
 {% endfor %}
- 
-    <script>
-        function letter(){
-            for (var i=0;i<=8;i++){
-                document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
-                var x=document.getElementById("textInp").value;
-                document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
-                document.getElementById("letter"+i.toString()).innerHTML=x.substring(i,i+1);
-                if (document.getElementById("letter"+i.toString()).innerHTML == "")  {
-                    document.getElementById("letter"+i.toString()).innerHTML = "⠀";
-                }
-            }
-        }
-        function remove(x){
-            var y=document.getElementById("textInp").value;
-            document.getElementById("textInp").value=y.substring(0,x)+y.substring(Number(x)+1);
-            letter();
-        }
-        letter();
-    </script>
+</div>
+	<script>
+		function letter(){
+			for (var i=0;i<=8;i++){
+				document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
+				var x=document.getElementById("textInp").value;
+				document.getElementById("letter"+i.toString()).innerHTML=document.getElementById("textInp").value;
+				document.getElementById("letter"+i.toString()).innerHTML=x.substring(i,i+1);
+				if (document.getElementById("letter"+i.toString()).innerHTML == "")  {
+					document.getElementById("letter"+i.toString()).innerHTML = "⠀";
+				}
+			}
+		}
+		function remove(x){
+			var y=document.getElementById("textInp").value;
+			document.getElementById("textInp").value=y.substring(0,x)+y.substring(Number(x)+1);
+			letter();
+		}
+		letter();
+	</script>
+</div>
 </body>
 </html>
