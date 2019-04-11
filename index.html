@@ -35,33 +35,38 @@
 		letter();
 		}
 	</script>
-
- <div class="EnteredText">
-	<p id='letters'></p>
-	<p id='letter0' onclick="remove('0')" style='float: left'>⠀</p>
-	<p id='letter1' onclick="remove('1')" style='float: left'>⠀</p>
-	<p id='letter2' onclick="remove('2')" style='float: left'>⠀</p>
-	<p id='letter3' onclick="remove('3')" style='float: left'>⠀</p>
-	<p id='letter4' onclick="remove('4')" style='float: left'>⠀</p>
-	<p id='letter5' onclick="remove('5')" style='float: left'>⠀</p>
-	<p id='letter6' onclick="remove('6')" style='float: left'>⠀</p>
-	<p id='letter7' onclick="remove('7')" style='float: left'>⠀</p>
-	<p id='letter8' onclick="remove('8')" style='float: left'>⠀</p>
+<div class="Blanket">
+ <p class="EnteredText">
+	<span id='letter0' onclick="remove('0')" >⠀</span>
+	<span id='letter1' onclick="remove('1')" >⠀</span>
+	<span id='letter2' onclick="remove('2')" >⠀</span>
+	<span id='letter3' onclick="remove('3')" >⠀</span>
+	<span id='letter4' onclick="remove('4')" >⠀</span>
+	<span id='letter5' onclick="remove('5')" >⠀</span>
+	<span id='letter6' onclick="remove('6')" >⠀</span>
+	<span id='letter7' onclick="remove('7')" >⠀</span>
+	<span id='letter8' onclick="remove('8')" >⠀</span>
+</p>
+ <p class="MainWord">
+	<span id='aletter0'>⠀</span>
+	<span id='aletter1'>⠀</span>
+	<span id='aletter2'>⠀</span>
+	<span id='aletter3'>⠀</span>
+	<span id='aletter4'>⠀</span>
+	<span id='aletter5'>⠀</span>
+	<span id='aletter6'>⠀</span>
+	<span id='aletter7'>⠀</span>
+	<span id='aletter8'>⠀</span>
+</p>
 </div>
-
-	<br>
-
-	<div class="TextEntry">
+<br>
 		<form>
+			<div class="TextEntry">
 			<input maxlength="9" type='text' id='textInp' name='inputText' onkeyup="letter()">
 			</div>
 			<div class="SubmitButtons">
-			<input type="submit" value="Normal Countdown Solver">
-			<input type="submit" value="Joke Countdown Solver">
+			<input type="submit" value="Countdown Solver">			
 			</div>
 		</form>
-	</div>
-
-
 </body>
 </html>

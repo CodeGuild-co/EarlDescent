@@ -14,8 +14,27 @@
 	letter-spacing: 4px;
 }
 
+.SubmitButtons{
+	margin-left: 300px;
+	margin-top: -25px;
+}
 .EnteredText{
 	margin-left: 50px;
+}
+
+.TextEntry{
+	margin-top: 80px;
+	margin-left: 50px;
+}
+
+.MainWord {
+	margin-top: 20px;
+	margin-left: 50px;
+
+}
+
+.Blanket{
+	display: inline;
 }
 
 #letter0:hover{
@@ -61,15 +80,6 @@
 #letter8:hover{
 	color: red;
 	border: 3px solid red;
-}
-
-.TextEntry {
-	margin-top: 50px;
-	margin-left: 50px;
-}
-
-.SubmitButtons{
-	margin-left: 300px;
 }
 
 #letter0{
@@ -129,6 +139,70 @@
 }
 
 #letter8{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+
+#aletter0{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter1{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter2{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter3{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter4{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter5{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter6{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter7{
+	border: 3px solid blue;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+#aletter8{
 	border: 3px solid blue;
 	text-transform: uppercase;
 	font-family: monospace;
