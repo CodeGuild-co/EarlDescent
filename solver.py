@@ -1,10 +1,6 @@
 import requests # used for getting definitions
 
 #### Useful functions ####
-def sort(_list):
-    _list.sort()
-    return _list
-
 def each(_list):
     return range(len(_list))
 
@@ -12,7 +8,7 @@ def each(_list):
 with open('dictionary.txt','r') as file:
     dictionary = file.readlines()
 
-searching_dict = [sort(list(dictionary[i])[:-1]) for i in each(dictionary)]
+searching_dict = [list(dictionary[i])[:-1] for i in each(dictionary)]
 
 #### Program functions ####
 def minimise_dictionary(letters):
@@ -63,25 +59,68 @@ def get_best_words(dictionary):
         return [dictionary[index[i]] for i in each(dictionary)]
 
 
-##def get_definition(word):
-##    '''Grabs the definition of a word from dictionary.com'''
-##    link = 'https://www.dictionary.com/browse/' + word
-##    f = requests.get(link)
-##    html = f.text
-##    definition = html.split(' See more.">')[0].split(word.title() + ' definition, ')[1]
+def get_definition(word):
+    '''Grabs the definition of a word from google'''
+    # searching for the word on google
+    link = 'https://www.google.com/search?q=define+' + word
+    f = requests.get(link)
+    # reading the html
+    html = f.text
+    # html depends on word type so try each of them
+    word_type = ['verb','noun','pronoun','adjective','adverb','exclamation']
+    for i in each(word_type):
+        before = '<table style="font-size:14px;width:100%"><tr><td>'
+        before += '<div style="color:#666;padding:5px 0">' + word_type[i] + '</div><ol><li>'
+        try:
+            definition = html.split(before)[1].split('</li>')[0].capitalize()[:-1]
+            break
+        except:
+            pass
 
-##    link = 'https://en.oxforddictionaries.com/definition/hokkie'
-##    f = requests.get(link)
-##    html = f.text
-##    print(html)
+    try:
+        return definition,word
+    except:
+        try:
+            for i in each(word_type):
+                before = '<table style="font-size:14px;width:100%"><tr><td>'
+                before += '<div style="color:#666;padding:5px 0">' + word_type[i] + '</div>'
+                before += '<ol style="padding-left:20px"><li style="list-style-type:decimal">'
+                try:
+                    definition = html.split(before)[1].split('</li>')[0].capitalize()[:-1]
+                    break
+                except:
+                    pass
+            return definition,word
+        except:
+            pass
+        if word[-2:] == 'er':
+            try:
+                return get_definition(word[:-2])
+            except:
+                return get_definition(word[:-3])
+        elif word[-3:] == 'ers':
+            try:
+                if get_definition(word[:-3]) == None:
+                    return get_definition(word[:-4])
+                return get_definition(word[:-3])
+            except:
+                pass
+        elif word[-5:] == 'iness':
+            return get_definition(word[:-5] + 'y')
+        elif word[-4:] == 'ness':
+            return get_definition(word[:-4])
+        else:
+            pass
 
-
-##    return definition
     
 if __name__ == "__main__":
-    letters = sort(list(input('What letters would you like? ').lower()))
+    letters = list(input('What letters would you like? ').lower())
     d = minimise_dictionary(letters)
     words = get_best_words(d)
     for i in words:
         print(i)
-    #print(words[0].title() + ' - ' + get_definition(words[0]))
+    definition,word = get_definition(words[0])
+    if word != words[0]:
+        print(word.capitalize() + ' (' + words[0] + ') - ' + definition)
+    else:
+        print(word.capitalize() + ' - ' + definition)

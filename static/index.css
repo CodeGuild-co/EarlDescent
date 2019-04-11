@@ -27,6 +27,9 @@
 	margin-left: 50px;
 }
 
+.OtherWords{
+	margin-left: 50px;
+}
 .MainWord {
 	margin-top: 20px;
 	margin-left: 50px;
@@ -87,6 +90,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter1{
@@ -94,6 +99,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter2{
@@ -101,6 +108,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter3{
@@ -108,6 +117,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter4{
@@ -115,6 +126,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter5{
@@ -122,6 +135,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter6{
@@ -129,6 +144,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter7{
@@ -136,6 +153,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 #letter8{
@@ -143,6 +162,8 @@
 	text-transform: uppercase;
 	font-family: monospace;
 	font-size: 20px;
+	background-color:lightblue;
+	color:white;
 }
 
 
