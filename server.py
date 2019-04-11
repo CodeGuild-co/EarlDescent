@@ -8,12 +8,14 @@ app = Flask(__name__)
 def hello():
     words = []
     definition = ''
+    word = ''
+    inputText = request.args.get("inputText","")
     if "inputText" in request.args:
         letters = sorted(list(request.args["inputText"].lower()))
         dictionary = minimise_dictionary(letters)
         words = get_best_words(dictionary)
-        definition = get_definition(words[0])
-    return render_template("index.html", words=words, definition=definition)
+        definition,word = get_definition(words[0])
+    return render_template("index.html", words=words, definition=definition, word=word, inputText=inputText)
 
 if __name__ == '__main__':
     app.run(debug=True)
