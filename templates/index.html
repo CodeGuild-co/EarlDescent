@@ -1,38 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-	<title> Earl Descent </title>
-	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <title> Earl Descent </title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-
+ 
 <!-- Header -->
-
-	<div class="header">
-		<h1> Earl Descent </h1>
-	</div>
-	<div class="headercaption">
-		<p> A website that helps you get the most points in Countdown. </p>
-	</div>
-
+ 
+    <div class="header">
+        <h1> Earl Descent </h1>
+    </div>
+    <div class="headercaption">
+        <p> A website that helps you get the most points in Countdown. </p>
+    </div>
+ 
 <!-- Entry Form -->
+<p>
 <div class="Blanket">
- <p class="EnteredText">
-	<span id='letter0' onclick="remove('0')" >⠀</span>
-	<span id='letter1' onclick="remove('1')" >⠀</span>
-	<span id='letter2' onclick="remove('2')" >⠀</span>
-	<span id='letter3' onclick="remove('3')" >⠀</span>
-	<span id='letter4' onclick="remove('4')" >⠀</span>
-	<span id='letter5' onclick="remove('5')" >⠀</span>
-	<span id='letter6' onclick="remove('6')" >⠀</span>
-	<span id='letter7' onclick="remove('7')" >⠀</span>
-	<span id='letter8' onclick="remove('8')" >⠀</span>
+ <p class="EnteredText" >
+    <span id='letter0' onclick="remove('0')" >⠀</span>
+    <span id='letter1' onclick="remove('1')" >⠀</span>
+    <span id='letter2' onclick="remove('2')" >⠀</span>
+    <span id='letter3' onclick="remove('3')" >⠀</span>
+    <span id='letter4' onclick="remove('4')" >⠀</span>
+    <span id='letter5' onclick="remove('5')" >⠀</span>
+    <span id='letter6' onclick="remove('6')" >⠀</span>
+    <span id='letter7' onclick="remove('7')" >⠀</span>
+    <span id='letter8' onclick="remove('8')" >⠀</span>
 </p>
-    <p class="MainWord">
-        {% for letter in words[0] %}
-            <span>{{ letter }}</span>
-        {% endfor %}
-    </p>
+ 
+<p class="MainWord">
+    {% for letter in words[0] %}
+        <span>{{ letter }}</span>
+    {% endfor %}
+</p>
+ 
+<p>
+{{word.capitalize()}}:
+{{definition}} 
+</p>
+ 
 </div>
 <br>
 		<form method="GET">
