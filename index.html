@@ -1,0 +1,308 @@
+<!https://www.buzzfeed.com/alexfinnis/the-100-most-brilliantly-british-swear-words-in-existence>
+<!https://www.merriam-webster.com/words-at-play/top-10-rare-and-amusing-insults-vol-1/milksop>
+<!https://www.indy100.com/article/british-swear-words-ranked-ofcom-7340446>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="https://banner2.cleanpng.com/20180411/uaw/kisspng-computer-icons-time-hourglass-clock-clock-5ace21e470a971.5935546915234585324615.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<title>Countdown Solver</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<script src="jquery.fittext.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "roboto", sans-serif
+    }
+    
+    .w3-bar,
+    h1,
+    button {
+        font-family: "Montserrat", sans-serif
+    }
+    
+    .fa-clock-o,
+    .fa-coffee {
+        font-size: 200px
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #customers td,
+    #customers th {
+        border: 2px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4C90EB;
+        color: white;
+    }
+</style>
+
+<body>
+    <!-- Header -->
+    <header class="w3-container w3-blue w3-center" style="padding:210px 16px">
+        <h1 class="w3-margin w3-jumbo">EARL DESCENT</h1>
+        <p class="w3-xlarge">COUNTDOWN CALCULATOR FOR RUDE WORDS</p>
+        <a href="#Game" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Go to game</a>
+    </header>
+    <!-- First Grid -->
+
+    <div class="center-align container" style="padding-top: 25px">
+        <table id="customers">
+            <tr>
+                <th id="letter0" style="text-align:center">&nbsp;</th>
+                <th id="letter1" style="text-align:center"> &nbsp;</th>
+                <th id="letter2" style="text-align:center">&nbsp;</th>
+                <th id="letter3" style="text-align:center"> &nbsp;</th>
+                <th id="letter4" style="text-align:center">&nbsp;</th>
+                <th id="letter5" style="text-align:center">&nbsp;</th>
+                <th id="letter6" style="text-align:center">&nbsp;</th>
+                <th id="letter7" style="text-align:center">&nbsp;</th>
+                <th id="letter8" style="text-align:center">&nbsp;</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="container w3-row-padding">
+            <div class="col s6">
+                <div class=" w3-padding-32" id="Game">
+                    <div class=" ">
+                        <h1>Countdown</h1>
+                        <form id="myForm">
+                            <label form="letters">Insert the letters:</label>
+                            <div class="row">
+                                <div class="col s6">
+                                    <input id="letters" name="letters" value="" maxlength="9" onkeyup="updateLetters(letters)" onkeypress="handleEnterKey(event)">
+                                </div>
+                            </div>
+                            <!-- Switch -->
+                            <div class="switch">
+                                <label>
+                                    Fast
+                                    <input type="checkbox">
+                                    <span onclick="toggle()" class="lever"></span> Accurate
+                                </label>
+                            </div>
+                              <div class="progress">
+                                <div class="indeterminate"></div>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 w3-padding-32">
+                <table id="answers">
+                    <tr>
+                        <th>Rude</th>
+                        <th>Regular</th>
+
+                    </tr>
+                    <tr>
+                        <td id="ru0">_</td>
+                        <td id="re0">_</td>
+
+                    </tr>
+                    <tr>
+                        <td id="ru1">_</td>
+                        <td id="re1">_</td>
+                    </tr>
+                    <tr>
+                        <td id="ru2">_</td>
+                        <td id="re2">_</td>
+                    </tr>
+                    <tr>
+                        <td id="ru3">_</td>
+                        <td id="re3">_</td>
+                    </tr>
+                    <tr>
+                        <td id="ru4">_</td>
+                        <td id="re4">_</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-black w3-center w3-opacity" style="padding:67px 16px">
+        <h1 class="w3-margin w3-xlarge">A website that helps you get the most points in Countdown</h1>
+    </div>
+
+    <script>
+        let toggle_accuracy = false
+
+        let different_dictionarys = {
+            false: "https://raw.githubusercontent.com/uploadingdictionairy/dictionary/master/10k.json",
+            true: "https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json"
+        }
+
+        function handleEnterKey(e) {
+            if (e.keyCode == 13) { // enter pressed
+                try {
+                    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+                    //DO ALTERNATE ACTION RATHER THAN SEND ENTER
+
+                } catch (err) {
+                    console.log(err.message);
+                }
+            }
+        }
+var timeout;
+
+
+
+        function toggle() {
+            console.log(different_dictionarys[toggle_accuracy])
+            toggle_accuracy = !toggle_accuracy
+            updateLetters(letters)
+        }
+
+        jQuery("h1").fitText();
+        $("#answers").hide();
+        $(".progress").hide();
+
+        function updateLetters(value) {
+          
+          if (toggle_accuracy){
+            $(".progress").show();
+           clearTimeout(timeout);
+
+          timeout =     setTimeout(function() {
+    doEverything(value.value.toLowerCase());  // You used `el`, not `element`?
+}, 1000);
+          } else{
+            doEverything(value.value.toLowerCase())
+          }
+            var letters = document.getElementById("letters").value.toUpperCase().split("");
+            for (var i = 0; i < 9; i++) {
+                var character;
+                if (letters.length <= i) {
+                    character = "&nbsp;";
+                } else {
+                    character = letters[i];
+                }
+                document.getElementById("letter" + i.toString()).innerHTML = character;
+            }
+        }
+        var length;
+        var JSONItems = [];
+
+        var to_be_sorted = [];
+
+        function doEverything(letters) {
+            length = letters.length;
+            chars = char_count(letters);
+            $("table").fadeIn();
+            to_be_sorted = []
+            $.getJSON('https://raw.githubusercontent.com/uploadingdictionairy/cuss/patch-1/index.json', function(rude) {
+                //data is the JSON string
+                var rudes = doCountdown(rude);
+
+                for (var i = 0; i < 5; i++) {
+                    var value = "";
+                    if (i < rudes.length) {
+                        value = rudes[i];
+                    } else {
+                        value = "&nbsp;";
+                    }
+
+                    document.getElementById("ru" + i.toString()).innerHTML = value;
+                }
+            });
+
+            $.getJSON(different_dictionarys[toggle_accuracy], function(dickt3) {
+            $(".progress").hide();
+                //data is the JSON string
+                setTimeout(function(){ 
+                var regs = doCountdown(dickt3);
+
+                            $(".progress").fadeOut();
+                for (var i = 0; i < 5; i++) {
+                    var value = "";
+                    if (i < regs.length) {
+                        value = regs[i];
+                    } else {
+                        value = "";
+                    }
+                                    $(".progress").hide();
+                    document.getElementById("re" + i.toString()).innerHTML = value;
+                }
+              }, 250);
+            });
+
+        }
+
+        function doCountdown(input_dickt) {
+            Object.keys(input_dickt).forEach(function(dictword) {
+                var fine = true;
+                var chars_of_word = char_count(dictword);
+
+                Object.keys(chars_of_word).forEach(function(letter) {
+                    if (chars_of_word[letter] > chars[letter] || !chars[letter]) {
+                        fine = false;
+                        return;
+                    }
+                });
+                if (fine) {
+                    to_be_sorted.push(dictword);
+                }
+            });
+
+            to_be_sorted.sort(function(b, a) {
+                return a.length - b.length || a.localeCompare(b);
+            });
+
+            var result = [];
+            for (var i = 0; i < 5 && i < to_be_sorted.length; i++) {
+                if (to_be_sorted[i].length > 2) {
+                    result.push(to_be_sorted[i]);
+                }
+            }
+            return result;
+        }
+
+        function char_count(input) // Gets count of chars, yees -> y 1 e 2 s 1
+        {
+            var chars = []
+            for (var letter of input.split("")) {
+                if (!chars[letter]) {
+                    chars[letter] = 1
+                } else {
+                    chars[letter] += 1;
+                }
+            }
+            return chars
+        }
+    </script>
+
+</body>
+
+</html>
