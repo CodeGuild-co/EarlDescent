@@ -111,9 +111,9 @@
                                     <span onclick="toggle()" class="lever"></span> Accurate
                                 </label>
                             </div>
-                              <div class="progress">
+                            <div class="progress">
                                 <div class="indeterminate"></div>
-                              </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -154,97 +154,98 @@
     <div class="w3-container w3-black w3-center w3-opacity" style="padding:67px 16px">
         <h1 class="w3-margin w3-xlarge">A website that helps you get the most points in Countdown</h1>
     </div>
+</body>
 
-    <script>
-        let toggle_accuracy = false
+</html>
 
-        let different_dictionarys = {
-            false: "https://raw.githubusercontent.com/uploadingdictionairy/dictionary/master/10k.json",
-            true: "https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json"
-        }
+<script>
+    let toggle_accuracy = false
 
-        function handleEnterKey(e) {
-            if (e.keyCode == 13) { // enter pressed
-                try {
-                    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+    let different_dictionarys = {
+        false: "https://raw.githubusercontent.com/uploadingdictionairy/dictionary/master/10k.json",
+        true: "https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json"
+    }
 
-                    //DO ALTERNATE ACTION RATHER THAN SEND ENTER
+    function handleEnterKey(e) {
+        if (e.keyCode == 13) { // enter pressed
+            try {
+                e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-                } catch (err) {
-                    console.log(err.message);
-                }
+                //DO ALTERNATE ACTION RATHER THAN SEND ENTER
+
+            } catch (err) {
+                console.log(err.message);
             }
         }
-var timeout;
+    }
+    var timeout;
 
+    function toggle() {
+        console.log(different_dictionarys[toggle_accuracy])
+        toggle_accuracy = !toggle_accuracy
+        updateLetters(letters)
+    }
 
+    jQuery("h1").fitText();
+    $("#answers").hide();
+    $(".progress").hide();
 
-        function toggle() {
-            console.log(different_dictionarys[toggle_accuracy])
-            toggle_accuracy = !toggle_accuracy
-            updateLetters(letters)
-        }
+    function updateLetters(value) {
 
-        jQuery("h1").fitText();
-        $("#answers").hide();
-        $(".progress").hide();
-
-        function updateLetters(value) {
-          
-          if (toggle_accuracy){
+        if (toggle_accuracy) {
             $(".progress").show();
-           clearTimeout(timeout);
+            clearTimeout(timeout);
 
-          timeout =     setTimeout(function() {
-    doEverything(value.value.toLowerCase());  // You used `el`, not `element`?
-}, 1000);
-          } else{
+            timeout = setTimeout(function() {
+                doEverything(value.value.toLowerCase()); // You used `el`, not `element`?
+            }, 1000);
+        } else {
             doEverything(value.value.toLowerCase())
-          }
-            var letters = document.getElementById("letters").value.toUpperCase().split("");
-            for (var i = 0; i < 9; i++) {
-                var character;
-                if (letters.length <= i) {
-                    character = "&nbsp;";
-                } else {
-                    character = letters[i];
-                }
-                document.getElementById("letter" + i.toString()).innerHTML = character;
-            }
         }
-        var length;
-        var JSONItems = [];
+        var letters = document.getElementById("letters").value.toUpperCase().split("");
+        for (var i = 0; i < 9; i++) {
+            var character;
+            if (letters.length <= i) {
+                character = "&nbsp;";
+            } else {
+                character = letters[i];
+            }
+            document.getElementById("letter" + i.toString()).innerHTML = character;
+        }
+    }
+    var length;
+    var JSONItems = [];
 
-        var to_be_sorted = [];
+    var to_be_sorted = [];
 
-        function doEverything(letters) {
-            length = letters.length;
-            chars = char_count(letters);
-            $("table").fadeIn();
-            to_be_sorted = []
-            $.getJSON('https://raw.githubusercontent.com/uploadingdictionairy/cuss/patch-1/index.json', function(rude) {
-                //data is the JSON string
-                var rudes = doCountdown(rude);
+    function doEverything(letters) {
+        length = letters.length;
+        chars = char_count(letters);
+        $("table").fadeIn();
+        to_be_sorted = []
+        $.getJSON('https://raw.githubusercontent.com/uploadingdictionairy/cuss/patch-1/index.json', function(rude) {
+            //data is the JSON string
+            var rudes = doCountdown(rude);
 
-                for (var i = 0; i < 5; i++) {
-                    var value = "";
-                    if (i < rudes.length) {
-                        value = rudes[i];
-                    } else {
-                        value = "&nbsp;";
-                    }
-
-                    document.getElementById("ru" + i.toString()).innerHTML = value;
+            for (var i = 0; i < 5; i++) {
+                var value = "";
+                if (i < rudes.length) {
+                    value = rudes[i];
+                } else {
+                    value = "&nbsp;";
                 }
-            });
 
-            $.getJSON(different_dictionarys[toggle_accuracy], function(dickt3) {
+                document.getElementById("ru" + i.toString()).innerHTML = value;
+            }
+        });
+
+        $.getJSON(different_dictionarys[toggle_accuracy], function(dickt3) {
             $(".progress").hide();
-                //data is the JSON string
-                setTimeout(function(){ 
+            //data is the JSON string
+            setTimeout(function() {
                 var regs = doCountdown(dickt3);
 
-                            $(".progress").fadeOut();
+                $(".progress").fadeOut();
                 for (var i = 0; i < 5; i++) {
                     var value = "";
                     if (i < regs.length) {
@@ -252,57 +253,53 @@ var timeout;
                     } else {
                         value = "";
                     }
-                                    $(".progress").hide();
+                    $(".progress").hide();
                     document.getElementById("re" + i.toString()).innerHTML = value;
                 }
-              }, 250);
-            });
+            }, 250);
+        });
 
-        }
+    }
 
-        function doCountdown(input_dickt) {
-            Object.keys(input_dickt).forEach(function(dictword) {
-                var fine = true;
-                var chars_of_word = char_count(dictword);
+    function doCountdown(input_dickt) {
+        Object.keys(input_dickt).forEach(function(dictword) {
+            var fine = true;
+            var chars_of_word = char_count(dictword);
 
-                Object.keys(chars_of_word).forEach(function(letter) {
-                    if (chars_of_word[letter] > chars[letter] || !chars[letter]) {
-                        fine = false;
-                        return;
-                    }
-                });
-                if (fine) {
-                    to_be_sorted.push(dictword);
+            Object.keys(chars_of_word).forEach(function(letter) {
+                if (chars_of_word[letter] > chars[letter] || !chars[letter]) {
+                    fine = false;
+                    return;
                 }
             });
-
-            to_be_sorted.sort(function(b, a) {
-                return a.length - b.length || a.localeCompare(b);
-            });
-
-            var result = [];
-            for (var i = 0; i < 5 && i < to_be_sorted.length; i++) {
-                if (to_be_sorted[i].length > 2) {
-                    result.push(to_be_sorted[i]);
-                }
+            if (fine) {
+                to_be_sorted.push(dictword);
             }
-            return result;
-        }
+        });
 
-        function char_count(input) // Gets count of chars, yees -> y 1 e 2 s 1
-        {
-            var chars = []
-            for (var letter of input.split("")) {
-                if (!chars[letter]) {
-                    chars[letter] = 1
-                } else {
-                    chars[letter] += 1;
-                }
+        to_be_sorted.sort(function(b, a) {
+            return a.length - b.length || a.localeCompare(b);
+        });
+
+        var result = [];
+        for (var i = 0; i < 5 && i < to_be_sorted.length; i++) {
+            if (to_be_sorted[i].length > 2) {
+                result.push(to_be_sorted[i]);
             }
-            return chars
         }
-    </script>
+        return result;
+    }
 
-</body>
-
-</html>
+    function char_count(input) // Gets count of chars, yees -> y 1 e 2 s 1
+    {
+        var chars = []
+        for (var letter of input.split("")) {
+            if (!chars[letter]) {
+                chars[letter] = 1
+            } else {
+                chars[letter] += 1;
+            }
+        }
+        return chars
+    }
+</script>
