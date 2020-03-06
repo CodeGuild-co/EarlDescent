@@ -7,7 +7,7 @@ Download contents of public folder.
 
 ## Usage
 
-Accurate mode uses a 500k dictionary and is laborious to run; fast fetches a 10k dictionary. Both do not modify the rude word dictionary.
+Accurate mode uses a 500k dictionary that is laborious to run; fast fetches a 10k dictionary. Both do not modify the rude word dictionary.
 Just type in the input box for an output.
 
 ## Contributing
